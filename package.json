@@ -1,0 +1,33 @@
+{
+  "name": "react-native-amplitude-analytics",
+  "version": "0.1.0",
+  "description": "React Native iOS and Android wrapper for Amplitude",
+  "keywords": [
+    "react-native",
+    "react",
+    "react-component",
+    "amplitude",
+    "analytics",
+    "ios",
+    "android"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SudoPlz/react-native-amplitude-sdk.git"
+  },
+  "main": "index.js",
+  "author": {
+    "name": "Ioannis Kokkinidis",
+    "email": "sudoplz@gmail.com",
+    "url": "https://www.linkedin.com/in/sudoplz"
+  },
+  "scripts": {
+    "cpExDir": "cp -rf Example/node_modules/react-native-amplitude-analytics/ios/ ios/"
+  },
+  "peerDependencies": {
+    "react-native": ">=0.40"
+  },
+  "dependencies": {
+    "fbjs": "^0.8.5"
+  }
+}
