@@ -11,11 +11,11 @@ import com.facebook.react.uimanager.ViewManager;
 
 import java.util.*;
 
-public class AmplitudeSDKAndroidPackage implements ReactPackage {
+public class RNAmplitudeSDKPackage implements ReactPackage {
 
     private Application mApplication = null;
 
-    public AmplitudeSDKAndroidPackage(Application application) {
+    public RNAmplitudeSDKPackage(Application application) {
         mApplication = application;
     }
 
