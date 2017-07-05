@@ -1,15 +1,17 @@
 
 # react-native-amplitude-analytics
 
+[![npm version](https://badge.fury.io/js/react-native-amplitude-analytics.svg)](https://badge.fury.io/js/react-native-amplitude-analytics)
+
 ## Dependencies
 
 `react-native` version `>0.40`
 
 ## Installation
 
-`$ npm install https://github.com/SudoPlz/react-native-amplitude-analytics#master --save`
+`npm i react-native-amplitude-analytics --save`
 
-`$ react-native link react-native-amplitude-analytics`
+`react-native link react-native-amplitude-analytics`
 
 #### iOS installation
 
