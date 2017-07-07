@@ -48,7 +48,14 @@
 3. Insert the following lines inside the dependencies block in `android/app/build.gradle`:
 
   	```gradle
-    compile project(':react-native-amplitude-analytics')
+	compile 'com.amplitude:android-sdk:2.13.4' // native sdk of amplitude
+    compile project(':react-native-amplitude-analytics') // our react-native module
+  	```
+
+4. Add permissions. If you haven't already, add the INTERNET permission to your manifest file:
+
+  	```
+  	<uses-permission android:name="android.permission.INTERNET" />
   	```
 
 ## Usage 
