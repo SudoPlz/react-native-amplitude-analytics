@@ -23,7 +23,7 @@ public class RNAmplitudeSDKPackage implements ReactPackage {
     public List<NativeModule> createNativeModules(
             ReactApplicationContext reactContext) {
         List<NativeModule> modules = new ArrayList<>();
-        modules.add(new AmplitudeSDKAndroid(reactContext,this.mApplication));
+        modules.add(new RNAmplitudeSDK(reactContext,this.mApplication));
         return modules;
     }
 
