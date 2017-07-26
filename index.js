@@ -42,7 +42,7 @@ class Amplitude {
     if (amplitudeHasInitialized) {
       return RNAmplitudeSDK.setUserId(userId.toString());
     } else {
-      console.error(`You called Amplitude.setUserId before initializing it. Run new Amplitute(key) first.`)
+      throw new Error('You called Amplitude.setUserId before initializing it. Run new Amplitute(key) first.');
     }
   }
 
@@ -50,7 +50,7 @@ class Amplitude {
     if (amplitudeHasInitialized) {
       return RNAmplitudeSDK.setUserProperties(properties);
     } else {
-      console.error(`You called Amplitude.setUserProperties before initializing it. Run new Amplitute(key) first.`)
+      throw new Error('You called Amplitude.setUserProperties before initializing it. Run new Amplitute(key) first.');
     }
   }
 
@@ -58,7 +58,7 @@ class Amplitude {
     if (amplitudeHasInitialized) {
       return RNAmplitudeSDK.clearUserProperties();
     } else {
-      console.error(`You called Amplitude.clearUserProperties before initializing it. Run new Amplitute(key) first.`)
+      throw new Error('You called Amplitude.clearUserProperties before initializing it. Run new Amplitute(key) first.');
     }
   }
 
@@ -66,7 +66,7 @@ class Amplitude {
     if (amplitudeHasInitialized) {
       this.evPrefix = prefix;
     } else {
-      console.error(`You called Amplitude.setLogEventPrefix before initializing it. Run new Amplitute(key) first.`)
+      throw new Error('You called Amplitude.setLogEventPrefix before initializing it. Run new Amplitute(key) first.');
     }
   }
 
@@ -83,7 +83,7 @@ class Amplitude {
         return RNAmplitudeSDK.logEvent(eventName);
       }
     } else {
-      console.error(`You called Amplitude.logEvent before initializing it. Run new Amplitute(key) first.`)
+      throw new Error('You called Amplitude.logEvent before initializing it. Run new Amplitute(key) first.');
     }
   }
 
@@ -94,7 +94,7 @@ class Amplitude {
     if (amplitudeHasInitialized) {
       return RNAmplitudeSDK.logRevenue(productIdentifier, quantity, amount); 
      } else {
-      console.error(`You called Amplitude.logRevenue before initializing it. Run new Amplitute(key) first.`)
+      throw new Error('You called Amplitude.logRevenue before initializing it. Run new Amplitute(key) first.');
     }
   }
 }
