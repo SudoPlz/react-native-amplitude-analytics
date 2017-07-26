@@ -38,7 +38,7 @@ public class RNAmplitudeSDK extends ReactContextBaseJavaModule {
 
   @ReactMethod
   public void initialize(String apiKey, Boolean trackSessionEvents) {
-    Amplitude.getInstance().initialize(getCurrentActivity(), apiKey).enableForegroundTracking(this.mApplication);
+    Amplitude.getInstance().initialize(getReactApplicationContext(), apiKey).enableForegroundTracking(this.mApplication);
     Amplitude.getInstance().trackSessionEvents(trackSessionEvents);
   }
 
@@ -47,7 +47,7 @@ public class RNAmplitudeSDK extends ReactContextBaseJavaModule {
     Amplitude.getInstance().setUserId(id);
   }
 
-	@ReactMethod
+  @ReactMethod
   public void setUserProperties(ReadableMap properties) {
     try {
       JSONObject jProperties = convertReadableToJsonObject(properties);
