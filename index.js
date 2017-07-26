@@ -11,7 +11,7 @@ import {NativeModules} from 'react-native';
 
 // Native Modules
 const { RNAmplitudeSDK } = NativeModules;
-
+var amplitudeHasInitialized = false;
 
 class Amplitude {
 
@@ -25,6 +25,7 @@ class Amplitude {
           this.evPrefix = eventPrefix;
         }
         RNAmplitudeSDK.initialize(apiKey, trackSessionEvents === true);
+        amplitudeHasInitialized = true;
       } else {
         throw new Error('RNAmplitudeSDK: No native client found. Is RNAmplitudeSDK installed in your native code project?');
       }
@@ -38,19 +39,35 @@ class Amplitude {
   // Identify
   // --------------------------------------------------
   setUserId(userId) {
-    return RNAmplitudeSDK.setUserId(userId.toString());
+    if (amplitudeHasInitialized) {
+      return RNAmplitudeSDK.setUserId(userId.toString());
+    } else {
+      console.error(`You called Amplitude.setUserId before initializing it. Run new Amplitute(key) first.`)
+    }
   }
 
   setUserProperties(properties) {
-    return RNAmplitudeSDK.setUserProperties(properties);
+    if (amplitudeHasInitialized) {
+      return RNAmplitudeSDK.setUserProperties(properties);
+    } else {
+      console.error(`You called Amplitude.setUserProperties before initializing it. Run new Amplitute(key) first.`)
+    }
   }
 
   clearUserProperties() {
-    return RNAmplitudeSDK.clearUserProperties();
+    if (amplitudeHasInitialized) {
+      return RNAmplitudeSDK.clearUserProperties();
+    } else {
+      console.error(`You called Amplitude.clearUserProperties before initializing it. Run new Amplitute(key) first.`)
+    }
   }
 
   setLogEventPrefix(prefix) {
-    this.evPrefix = prefix;
+    if (amplitudeHasInitialized) {
+      this.evPrefix = prefix;
+    } else {
+      console.error(`You called Amplitude.setLogEventPrefix before initializing it. Run new Amplitute(key) first.`)
+    }
   }
 
   // --------------------------------------------------
@@ -58,11 +75,15 @@ class Amplitude {
   // --------------------------------------------------
 
   logEvent(name, properties) {
-    var eventName = this.evPrefix ? this.evPrefix + name : name;
-    if (properties) {
-      return RNAmplitudeSDK.logEventWithProps(eventName, properties);
+    if (amplitudeHasInitialized) {
+      var eventName = this.evPrefix ? this.evPrefix + name : name;
+      if (properties) {
+        return RNAmplitudeSDK.logEventWithProps(eventName, properties);
+      } else {
+        return RNAmplitudeSDK.logEvent(eventName);
+      }
     } else {
-      return RNAmplitudeSDK.logEvent(eventName);
+      console.error(`You called Amplitude.logEvent before initializing it. Run new Amplitute(key) first.`)
     }
   }
 
@@ -70,7 +91,11 @@ class Amplitude {
   // Revenue
   // --------------------------------------------------
   logRevenue(productIdentifier, quantity, amount) {
-     return RNAmplitudeSDK.logRevenue(productIdentifier, quantity, amount); 
+    if (amplitudeHasInitialized) {
+      return RNAmplitudeSDK.logRevenue(productIdentifier, quantity, amount); 
+     } else {
+      console.error(`You called Amplitude.logRevenue before initializing it. Run new Amplitute(key) first.`)
+    }
   }
 }
 
