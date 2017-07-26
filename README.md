@@ -76,10 +76,10 @@ class testApp extends Component {
 	 const amplitude = new RNAmplitute('Your Amplitude key');
 	 
 	 // log an event
-	 amplitude.amplitude(eventName);
+	 amplitude.logEvent(eventName);
 	 
 	 // log an event with data
-	 amplitude.amplitude(eventName, { foo: bar });
+	 amplitude.logEvent(eventName, { foo: bar });
 	 
 	 // set the user id
 	 amplitude.setUserId('1D32FS45');
