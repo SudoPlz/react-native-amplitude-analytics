@@ -13,7 +13,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SudoPlz/react-native-amplitude-sdk.git"
+    "url": "git+https://github.com/SudoPlz/react-native-amplitude-analytics.git"
   },
   "main": "index.js",
   "author": {
