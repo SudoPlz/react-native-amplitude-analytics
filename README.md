@@ -34,7 +34,7 @@
   - Add 
 
     ```java
-    new RNAmplitudeSDKPackage(),
+    new RNAmplitudeSDKPackage(MainApplication.this),
     ``` 
 
   to the list returned by the `getPackages()` method
