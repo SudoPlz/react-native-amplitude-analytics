@@ -7,7 +7,7 @@
 'use strict';
 
 // Libraries
-import {NativeModules} from 'react-native';
+import { NativeModules, Platform } from 'react-native';
 
 // Native Modules
 const { RNAmplitudeSDK } = NativeModules;
@@ -90,9 +90,13 @@ class Amplitude {
   // --------------------------------------------------
   // Revenue
   // --------------------------------------------------
-  logRevenue(productIdentifier, quantity, amount) {
+  logRevenue(productIdentifier, quantity, amount, receipt) {
     if (amplitudeHasInitialized) {
-      return RNAmplitudeSDK.logRevenue(productIdentifier, quantity, amount); 
+      if (Platform.OS === 'ios') {
+        return RNAmplitudeSDK.logRevenue(productIdentifier, quantity, amount, receipt); 
+      } else {
+        return RNAmplitudeSDK.logRevenue(productIdentifier, quantity, amount); 
+      }
      } else {
       throw new Error('You called Amplitude.logRevenue before initializing it. Run new Amplitute(key) first.');
     }
