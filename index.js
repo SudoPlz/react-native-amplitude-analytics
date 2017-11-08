@@ -40,7 +40,7 @@ class Amplitude {
   // --------------------------------------------------
   setUserId(userId) {
     if (amplitudeHasInitialized) {
-      return RNAmplitudeSDK.setUserId(userId.toString());
+      return RNAmplitudeSDK.setUserId(userId ? userId.toString() : null);
     } else {
       throw new Error('You called Amplitude.setUserId before initializing it. Run new Amplitute(key) first.');
     }
