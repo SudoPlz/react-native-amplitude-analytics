@@ -58,6 +58,11 @@ public class RNAmplitudeSDK extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
+  public void clearUserProperties() {
+    Amplitude.getInstance().clearUserProperties();
+  }
+
+  @ReactMethod
   public void logEvent(String identifier) {
     Amplitude.getInstance().logEvent(identifier);
   }
