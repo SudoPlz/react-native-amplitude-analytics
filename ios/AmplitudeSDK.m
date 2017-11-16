@@ -21,6 +21,11 @@ RCT_EXPORT_METHOD(setUserProperties:(NSDictionary *)properties)
      [[Amplitude instance] setUserProperties:properties];
 }
 
+RCT_EXPORT_METHOD(clearUserProperties)
+{
+     [[Amplitude instance] clearUserProperties];
+}
+
 RCT_EXPORT_METHOD(logEvent:(NSString *)event)
 {
      [[Amplitude instance] logEvent: event];
