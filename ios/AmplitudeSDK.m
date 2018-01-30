@@ -26,6 +26,11 @@ RCT_EXPORT_METHOD(clearUserProperties)
      [[Amplitude instance] clearUserProperties];
 }
 
+RCT_EXPORT_METHOD(regenerateDeviceId)
+{
+     [[Amplitude instance] regenerateDeviceId];
+}
+
 RCT_EXPORT_METHOD(logEvent:(NSString *)event)
 {
      [[Amplitude instance] logEvent: event];
