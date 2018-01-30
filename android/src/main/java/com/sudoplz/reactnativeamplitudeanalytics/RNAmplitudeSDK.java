@@ -63,6 +63,11 @@ public class RNAmplitudeSDK extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
+  public void regenerateDeviceId() {
+    Amplitude.getInstance().regenerateDeviceId();
+  }
+
+  @ReactMethod
   public void logEvent(String identifier) {
     Amplitude.getInstance().logEvent(identifier);
   }

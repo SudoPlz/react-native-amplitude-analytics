@@ -62,6 +62,14 @@ class Amplitude {
     }
   }
 
+  regenerateDeviceId() {
+    if (amplitudeHasInitialized) {
+      return RNAmplitudeSDK.regenerateDeviceId();
+    } else {
+      throw new Error('You called Amplitude.regenerateDeviceId before initializing it. Run new Amplitute(key) first.');
+    }
+  }
+
   setLogEventPrefix(prefix) {
     if (amplitudeHasInitialized) {
       this.evPrefix = prefix;
