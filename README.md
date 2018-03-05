@@ -11,14 +11,25 @@
 
 `npm i react-native-amplitude-analytics --save`
 
-`react-native link react-native-amplitude-analytics`
-
 #### iOS installation
 
-1. Open your app `.xcodeproj` file
-2. Add the following line to your "Podfile": `pod 'Amplitude-iOS', '~> 3.14.1'`
-3. run `pod install`
-4. Run your project (`Cmd+R`)
+##### Option 1 (link):
+
+1. `react-native link react-native-amplitude-analytics`
+2. Either
+- add the following line to your "Podfile": `pod 'Amplitude-iOS', '~> 4.0.4'` and run `pod install`
+
+or
+
+- download the Amplitude-iOS sdk from [here](https://amplitude.zendesk.com/hc/en-us/articles/115002278527#installation) and add it to your project manually.
+3. Run your project (`Cmd+R`)
+
+#### Option 2 (Cocoapods only)
+1. Add the following line to your "Podfile": `pod 'react-native-amplitude-analytics', path: '../node_modules/react-native-amplitude-analytics'`
+2. run `pod install`
+3. Run your project (`Cmd+R`)
+
+
 
 #### Android Manual installation
 
