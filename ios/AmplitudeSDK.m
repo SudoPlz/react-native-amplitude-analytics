@@ -21,6 +21,11 @@ RCT_EXPORT_METHOD(setUserProperties:(NSDictionary *)properties)
      [[Amplitude instance] setUserProperties:properties];
 }
 
+RCT_EXPORT_METHOD(setOptOut:(BOOL) optOut)
+{
+    [[Amplitude instance] setOptOut:optOut];
+}
+
 RCT_EXPORT_METHOD(clearUserProperties)
 {
      [[Amplitude instance] clearUserProperties];
