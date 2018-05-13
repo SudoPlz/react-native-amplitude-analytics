@@ -98,8 +98,8 @@ class testApp extends Component {
  	 // set user props
 	 amplitude.setUserProperties({ hairColor: 'brown' });
 
-   // sets whether or not to opt a user out logging
-   amplitude.setOptOut(true);
+         // sets whether or not to opt a user out logging
+         amplitude.setOptOut(true);
 	 
 	 // log revenue
 	 amplitude.logRevenue(productIdentifier, quantity, amount)
