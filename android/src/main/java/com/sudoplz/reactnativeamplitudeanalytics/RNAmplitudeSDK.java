@@ -58,6 +58,11 @@ public class RNAmplitudeSDK extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
+  public void setOptOut(Boolean optOut) {
+    Amplitude.getInstance().setOptOut(optOut);
+  }
+
+  @ReactMethod
   public void clearUserProperties() {
     Amplitude.getInstance().clearUserProperties();
   }

@@ -54,6 +54,14 @@ class Amplitude {
     }
   }
 
+  setOptOut(optOut) {
+    if (amplitudeHasInitialized) {
+      return RNAmplitudeSDK.setOptOut(optOut);
+    } else {
+      throw new Error('You called Amplitude.setOptOut before initializing it. Run new Amplitute(key) first.');
+    }
+  }
+
   clearUserProperties() {
     if (amplitudeHasInitialized) {
       return RNAmplitudeSDK.clearUserProperties();
