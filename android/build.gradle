@@ -17,5 +17,5 @@ android {
 
 dependencies {
     compile 'com.facebook.react:react-native:0.18.+'
-    compile 'com.amplitude:android-sdk:2.14.0'
+    compile 'com.amplitude:android-sdk:2.17.0'
 }
