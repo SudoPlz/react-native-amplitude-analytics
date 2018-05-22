@@ -1,6 +1,6 @@
 {
   "name": "react-native-amplitude-analytics",
-  "version": "0.1.15",
+  "version": "0.1.16",
   "description": "React Native iOS and Android wrapper for Amplitude",
   "keywords": [
     "react-native",
@@ -25,7 +25,7 @@
     "cpExDir": "cp -rf Example/node_modules/react-native-amplitude-analytics/ios/ ios/"
   },
   "peerDependencies": {
-    "react-native": ">=0.40"
+    "react-native": "*"
   },
   "dependencies": {
     "fbjs": "^0.8.5"
