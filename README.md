@@ -73,7 +73,7 @@ or
 
   ```javascript
 
-  import RNAmplitute from 'react-native-amplitude-analytics';
+  import RNAmplitude from 'react-native-amplitude-analytics';
 
   ```
 
@@ -84,7 +84,7 @@ or
 class testApp extends Component {
   constructor() {
     super();
-	 const amplitude = new RNAmplitute('Your Amplitude key');
+	 const amplitude = new RNAmplitude('Your Amplitude key');
 	 
 	 // log an event
 	 amplitude.logEvent(eventName);
