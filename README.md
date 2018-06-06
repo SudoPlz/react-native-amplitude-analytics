@@ -14,6 +14,9 @@
 #### iOS installation
 
 1. `react-native link react-native-amplitude-analytics`
+After you do that make sure that:
+- **RNAmplitudeSDK.xcodeproj** from `node_modules/react-native-amplitude-analytics/ios` is found within your Xcode Project as a subproject (if it's not add it manually with drag and drop).
+- **libRNAmplitudeSDK.a** is found within Linked Frameworks and Libraries under General tab (if it's not add it with the plus button) - (you don't need to add libAmplitude-iOS.a as that will be dealt with by Cocoapods in the next step).
 2. Either
 - add the following line to your "Podfile": `pod 'Amplitude-iOS', '~> 4.0.4'` and run `pod install`
 
