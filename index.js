@@ -103,6 +103,17 @@ class Amplitude {
     }
   }
 
+  logEventWithTimestamp (name, timestamp, properties = {}) {
+    if (amplitudeHasInitialized) {
+      var eventName = this.evPrefix ? this.evPrefix + name : name
+      return RNAmplitudeSDK.logEventWithTimestamp(eventName, timestamp, properties)
+    } else {
+      throw new Error(
+        'You called Amplitude.logEvent before initializing it. Run new Amplitute(key) first.'
+      )
+    }
+  }
+
   // --------------------------------------------------
   // Revenue
   // --------------------------------------------------

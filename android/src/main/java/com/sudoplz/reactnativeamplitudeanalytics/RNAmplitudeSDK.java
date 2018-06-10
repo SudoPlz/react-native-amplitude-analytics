@@ -90,6 +90,16 @@ public class RNAmplitudeSDK extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
+  public void logEventWithTimestamp(String identifier, double timestamp, ReadableMap properties) {
+    try {
+      JSONObject jProperties = convertReadableToJsonObject(properties);
+      Amplitude.getInstance().logEvent(identifier, jProperties, new JSONObject(), (long) timestamp, false);
+    } catch (JSONException e) {
+      return;
+    }
+  }
+
+  @ReactMethod
   public void logRevenue(String productIdentifier, int quantity, double amount) {
     Amplitude.getInstance().logRevenue(productIdentifier, quantity, amount);
   }

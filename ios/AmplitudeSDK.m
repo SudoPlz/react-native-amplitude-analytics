@@ -46,6 +46,11 @@ RCT_EXPORT_METHOD(logEventWithProps:(NSString *)eventKey properties:(NSDictionar
      [[Amplitude instance] logEvent: eventKey withEventProperties: properties];
 }
 
+RCT_EXPORT_METHOD(logEventWithTimestamp:(NSString *)eventKey timestamp:(nonnull NSNumber *)timestamp properties:(NSDictionary *)properties)
+{
+     [[Amplitude instance] logEvent: eventKey withEventProperties: properties withGroups: [NSMutableDictionary dictionary] withTimestamp: timestamp outOfSession: NO];
+}
+
 RCT_EXPORT_METHOD(logRevenue:(NSString *)productIdentifier quantity:(int)quantity price:(double)price receipt:(NSString*)receipt)
 {
      AMPRevenue *revenue = [[[AMPRevenue revenue] setProductIdentifier:productIdentifier] setQuantity: quantity];
