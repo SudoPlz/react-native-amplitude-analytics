@@ -88,6 +88,10 @@ class testApp extends Component {
 	 // log an event with data
 	 amplitude.logEvent(eventName, { foo: bar });
 	 
+	 // log an event with a custom timestamp (data is optional)
+	 // timestamp should be the number of milliseconds since Unix epoch
+	 amplitude.logEventWithTimestamp(eventName, timestamp, { foo: bar });
+	 
 	 // set the user id
 	 amplitude.setUserId('1D32FS45');
 	 
