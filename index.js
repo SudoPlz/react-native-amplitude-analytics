@@ -34,7 +34,6 @@ class Amplitude {
     }
   }
 
-
   // --------------------------------------------------
   // Identify
   // --------------------------------------------------
@@ -103,14 +102,14 @@ class Amplitude {
     }
   }
 
-  logEventWithTimestamp (name, timestamp, properties = {}) {
+  logEventWithTimestamp(name, timestamp, properties = {}) {
     if (amplitudeHasInitialized) {
-      var eventName = this.evPrefix ? this.evPrefix + name : name
-      return RNAmplitudeSDK.logEventWithTimestamp(eventName, timestamp, properties)
+      var eventName = this.evPrefix ? this.evPrefix + name : name;
+      return RNAmplitudeSDK.logEventWithTimestamp(eventName, timestamp, properties);
     } else {
       throw new Error(
         'You called Amplitude.logEvent before initializing it. Run new Amplitute(key) first.'
-      )
+      );
     }
   }
 
@@ -120,15 +119,22 @@ class Amplitude {
   logRevenue(productIdentifier, quantity, amount, receipt) {
     if (amplitudeHasInitialized) {
       if (Platform.OS === 'ios') {
-        return RNAmplitudeSDK.logRevenue(productIdentifier, quantity, amount, receipt); 
+        return RNAmplitudeSDK.logRevenue(productIdentifier, quantity, amount, receipt);
       } else {
-        return RNAmplitudeSDK.logRevenue(productIdentifier, quantity, amount); 
+        return RNAmplitudeSDK.logRevenue(productIdentifier, quantity, amount);
       }
-     } else {
+    } else {
       throw new Error('You called Amplitude.logRevenue before initializing it. Run new Amplitute(key) first.');
     }
   }
-}
 
+  addToUserProperty(property, amount) {
+    if (amplitudeHasInitialized) {
+      return RNAmplitudeSDK.addToUserProperty(property, amount);
+    } else {
+      throw new Error('You called Amplitude.addToUserPropery before initializing it. Run new Amplitute(key) first.');
+    }
+  }
+}
 
 export default Amplitude;
