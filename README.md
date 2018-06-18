@@ -80,29 +80,32 @@ or
 class testApp extends Component {
   constructor() {
     super();
-	 const amplitude = new RNAmplitude('Your Amplitude key');
+    const amplitude = new RNAmplitude('Your Amplitude key');
 	 
-	 // log an event
-	 amplitude.logEvent(eventName);
+    // log an event
+    amplitude.logEvent(eventName);
 	 
-	 // log an event with data
-	 amplitude.logEvent(eventName, { foo: bar });
+    // log an event with data
+    amplitude.logEvent(eventName, { foo: bar });
 	 
-	 // log an event with a custom timestamp (data is optional)
-	 // timestamp should be the number of milliseconds since Unix epoch
-	 amplitude.logEventWithTimestamp(eventName, timestamp, { foo: bar });
+    // log an event with a custom timestamp (data is optional)
+    // timestamp should be the number of milliseconds since Unix epoch
+    amplitude.logEventWithTimestamp(eventName, timestamp, { foo: bar });
 	 
-	 // set the user id
-	 amplitude.setUserId('1D32FS45');
+    // set the user id
+    amplitude.setUserId('1D32FS45');
 	 
- 	 // set user props
-	 amplitude.setUserProperties({ hairColor: 'brown' });
+    // set user props
+    amplitude.setUserProperties({ hairColor: 'brown' });
 
-         // sets whether or not to opt a user out logging
-         amplitude.setOptOut(true);
+    // sets whether or not to opt a user out logging
+    amplitude.setOptOut(true);
 	 
-	 // log revenue
-	 amplitude.logRevenue(productIdentifier, quantity, amount)
+    // log revenue
+    amplitude.logRevenue(productIdentifier, quantity, amount)
+	 
+    // add to user property
+    amplitude.addToUserProperty(property, amount)
   }
   ...
 }

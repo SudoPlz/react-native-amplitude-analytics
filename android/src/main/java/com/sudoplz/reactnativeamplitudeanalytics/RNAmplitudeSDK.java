@@ -135,4 +135,11 @@ public class RNAmplitudeSDK extends ReactContextBaseJavaModule {
     return jsonObj;
  }
 
+  @ReactMethod
+  public void addToUserProperty(String property, int value) {
+    Identify identify = new Identify().add(property, value);
+    Amplitude.getInstance().identify(identify);
+  }
+
+
 }
