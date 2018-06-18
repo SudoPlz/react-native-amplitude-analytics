@@ -1,6 +1,7 @@
 package com.sudoplz.reactnativeamplitudeanalytics;
 
 import com.amplitude.api.Amplitude;
+import com.amplitude.api.Identify;
 
 import android.app.Activity;
 import android.app.Application;
