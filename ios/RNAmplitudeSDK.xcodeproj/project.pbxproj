@@ -204,6 +204,7 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../../../ios/Pods/Amplitude-iOS",
+					"$(SRCROOT)/../../../ios/Amplitude-iOS",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$(SRCROOT)/../../React/**",
 					"$(SRCROOT)/../../node_modules/react-native/React/**",
@@ -229,6 +230,7 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../../../ios/Pods/Amplitude-iOS",
+					"$(SRCROOT)/../../../ios/Amplitude-iOS",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$(SRCROOT)/../../React/**",
 					"$(SRCROOT)/../../node_modules/react-native/React/**",

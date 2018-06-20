@@ -22,7 +22,7 @@ After you do that make sure that:
 
 or
 
-- download the Amplitude-iOS sdk from [here](https://amplitude.zendesk.com/hc/en-us/articles/115002278527#installation) and add it to your project manually.
+- download the Amplitude-iOS sdk from [here](https://amplitude.zendesk.com/hc/en-us/articles/115002278527#installation) and add it to your project manually. Make sure the `Amplitude-iOS` directory of the SDK is included in the root of your app's ios folder.
 3. Run your project (`Cmd+R`)
 
 
