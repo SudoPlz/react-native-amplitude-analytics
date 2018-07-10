@@ -1,6 +1,8 @@
 
 # react-native-amplitude-analytics
 
+<img src="Logotype primary.png" width="65%" height="65%" />
+
 [![npm version](https://badge.fury.io/js/react-native-amplitude-analytics.svg)](https://badge.fury.io/js/react-native-amplitude-analytics)
 
 ## Dependencies
