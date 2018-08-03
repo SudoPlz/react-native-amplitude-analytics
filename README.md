@@ -108,6 +108,9 @@ class testApp extends Component {
 	 
     // add to user property
     amplitude.addToUserProperty(property, amount)
+
+    // set user property once
+    amplitude.setUserPropertyOnce(property, value)
   }
   ...
 }

@@ -65,4 +65,10 @@ RCT_EXPORT_METHOD(addToUserProperty:(NSString *)property value:(int)value)
      [[Amplitude instance] identify:identify];
 }
 
+RCT_EXPORT_METHOD(setUserPropertyOnce:(NSString *)property value:(NSString *)value)
+{
+     AMPIdentify *identify = [[AMPIdentify identify] setOnce:property value:value];
+     [[Amplitude instance] identify:identify];
+}
+
 @end
