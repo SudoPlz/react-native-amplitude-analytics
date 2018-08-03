@@ -135,6 +135,14 @@ class Amplitude {
       throw new Error('You called Amplitude.addToUserPropery before initializing it. Run new Amplitute(key) first.');
     }
   }
+
+  setUserPropertyOnce(property, value) {
+    if (amplitudeHasInitialized) {
+      return RNAmplitudeSDK.setUserPropertyOnce(property, value);
+    } else {
+      throw new Error('You called Amplitude.setUserPropertyOnce before initializing it. Run new Amplitute(key) first.');
+    }
+  }
 }
 
 export default Amplitude;
