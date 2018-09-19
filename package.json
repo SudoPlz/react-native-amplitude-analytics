@@ -1,6 +1,6 @@
 {
   "name": "react-native-amplitude-analytics",
-  "version": "0.1.18",
+  "version": "0.1.19",
   "description": "React Native iOS and Android wrapper for Amplitude",
   "keywords": [
     "react-native",
