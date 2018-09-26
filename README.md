@@ -20,7 +20,7 @@ After you do that make sure that:
 - **RNAmplitudeSDK.xcodeproj** from `node_modules/react-native-amplitude-analytics/ios` is found within your Xcode Project as a subproject (if it's not add it manually with drag and drop).
 - **libRNAmplitudeSDK.a** is found within Linked Frameworks and Libraries under General tab (if it's not add it with the plus button) - (you don't need to add libAmplitude-iOS.a as that will be dealt with by Cocoapods in the next step).
 2. Either
-- add the following line to your "Podfile": `pod 'Amplitude-iOS', '~> 4.0.4'` and run `pod install`
+- add the following line to your "Podfile": `pod 'Amplitude-iOS', '~> 4.3.1'` and run `pod install`
 
 or
 
@@ -57,7 +57,7 @@ or
 3. Insert the following lines inside the dependencies block in `android/app/build.gradle`:
 
   	```gradle
-	compile 'com.amplitude:android-sdk:2.13.4' // native sdk of amplitude
+	  compile 'com.amplitude:android-sdk:2.19.1' // native sdk of amplitude
     compile project(':react-native-amplitude-analytics') // our react-native module
   	```
 
