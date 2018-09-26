@@ -12,10 +12,12 @@ import com.facebook.react.bridge.ReactContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 
+import com.facebook.react.bridge.ReadableArray;
 import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.bridge.ReadableMapKeySetIterator;
 import com.facebook.react.bridge.ReadableType;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -126,15 +128,49 @@ public class RNAmplitudeSDK extends ReactContextBaseJavaModule {
             jsonObj.put(key, map.getBoolean(key));
             break;
         case Array:
-            jsonObj.put(key, map.getArray(key));
-            break;
+            try {
+              jsonObj.put(key, convertReadableToJsonArray(map.getArray(key)));
+              break;
+            } catch (JSONException e) {
+              break;
+            }
         case Null:
             jsonObj.put(key, null);
             break;
       }
     }
     return jsonObj;
- }
+  }
+
+  public static JSONArray convertReadableToJsonArray(ReadableArray readableArray) throws JSONException {
+    JSONArray array = new JSONArray();
+    for (int i = 0; i < readableArray.size(); i++) {
+      switch (readableArray.getType(i)) {
+        case Null:
+          break;
+        case Boolean:
+          array.put(readableArray.getBoolean(i));
+          break;
+        case Number:
+            array.put(readableArray.getDouble(i));
+            break;
+        case String:
+            array.put(readableArray.getString(i));
+            break;
+        case Map:
+            try {
+              array.put(convertReadableToJsonObject(readableArray.getMap(i)));
+              break;
+            } catch (JSONException e) {
+              break;
+            } 
+        case Array:
+            array.put(convertArrayToJson(readableArray.getArray(i)));
+            break;
+      }
+    }
+    return array;
+  }
 
   @ReactMethod
   public void addToUserProperty(String property, int value) {
