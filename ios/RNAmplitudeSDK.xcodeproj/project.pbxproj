@@ -212,6 +212,7 @@
 					"$(SRCROOT)/../../../node_modules/react-native/React",
 					"$(SRCROOT)/../react-native/React",
 					"$(SRCROOT)/../node_modules/react-native/React/**",
+					"$(SRCROOT)/../../../ios/Amplitude/**",
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-ObjC";
@@ -238,6 +239,7 @@
 					"$(SRCROOT)/../../../node_modules/react-native/React",
 					"$(SRCROOT)/../react-native/React",
 					"$(SRCROOT)/../node_modules/react-native/React/**",
+					"$(SRCROOT)/../../../ios/Amplitude/**",
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-ObjC";
