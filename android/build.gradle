@@ -1,12 +1,18 @@
 apply plugin: 'com.android.library'
 
+def DEFAULT_BUILD_TOOLS_VERSION = "23.0.1"
+def DEFAULT_TARGET_SDK_VERSION = 22
+def DEFAULT_AMPLITUDE_SDK_VERSION = "2.17.0"
+
 android {
     compileSdkVersion 23
-    buildToolsVersion "23.0.1"
+      buildToolsVersion rootProject.hasProperty('buildToolsVersion') ? rootProject.buildToolsVersion : DEFAULT_BUILD_TOOLS_VERSION
+
 
     defaultConfig {
         minSdkVersion 16
-        targetSdkVersion 22
+        targetSdkVersion rootProject.hasProperty('targetSdkVersion') ? rootProject.targetSdkVersion : DEFAULT_TARGET_SDK_VERSION
+
         versionCode 1
         versionName "1.0"
         ndk {
@@ -15,7 +21,10 @@ android {
     }
 }
 
+def amplitudeVersion = rootProject.hasProperty('amplitudeLibVersion') ? rootProject.amplitudeLibVersion : DEFAULT_AMPLITUDE_SDK_VERSION
+
 dependencies {
     compile 'com.facebook.react:react-native:+'
-    compile 'com.amplitude:android-sdk:2.17.0'
+    compile "com.amplitude:android-sdk:$amplitudeVersion"
+
 }
