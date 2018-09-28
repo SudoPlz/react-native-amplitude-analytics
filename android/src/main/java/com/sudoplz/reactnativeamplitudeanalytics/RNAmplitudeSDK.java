@@ -165,7 +165,7 @@ public class RNAmplitudeSDK extends ReactContextBaseJavaModule {
               break;
             } 
         case Array:
-            array.put(convertArrayToJson(readableArray.getArray(i)));
+            array.put(convertReadableToJsonArray(readableArray.getArray(i)));
             break;
       }
     }
