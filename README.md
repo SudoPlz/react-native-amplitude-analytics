@@ -111,6 +111,9 @@ class testApp extends Component {
 
     // set user property once
     amplitude.setUserPropertyOnce(property, value)
+
+    // get device id as logged in Amplitude
+    amplitude.getDeviceId().then(deviceId => ...)
   }
   ...
 }

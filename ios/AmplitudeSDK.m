@@ -31,6 +31,12 @@ RCT_EXPORT_METHOD(clearUserProperties)
      [[Amplitude instance] clearUserProperties];
 }
 
+RCT_REMAP_METHOD(getDeviceId, getDeviceIdWithResolver:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject)
+{
+    NSString *deviceId = [[Amplitude instance] getDeviceId];
+    resolve(deviceId);
+}
+
 RCT_EXPORT_METHOD(regenerateDeviceId)
 {
      [[Amplitude instance] regenerateDeviceId];
