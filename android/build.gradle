@@ -25,7 +25,7 @@ android {
 def amplitudeVersion = rootProject.hasProperty('amplitudeLibVersion') ? rootProject.amplitudeLibVersion : DEFAULT_AMPLITUDE_SDK_VERSION
 
 dependencies {
-    compile 'com.facebook.react:react-native:+'
-    compile "com.amplitude:android-sdk:$amplitudeVersion"
+    implementation 'com.facebook.react:react-native:+'
+    implementation "com.amplitude:android-sdk:$amplitudeVersion"
 
 }
