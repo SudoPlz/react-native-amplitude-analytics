@@ -16,6 +16,7 @@
     "url": "git+https://github.com/SudoPlz/react-native-amplitude-analytics.git"
   },
   "main": "index.js",
+  "typings": "./index.d.ts",
   "author": {
     "name": "Ioannis Kokkinidis",
     "email": "sudoplz@gmail.com",
