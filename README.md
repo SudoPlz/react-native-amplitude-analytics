@@ -22,7 +22,7 @@ After you do that make sure that:
 2. Either
 - add the following line to your "Podfile": `pod 'Amplitude-iOS', '~> 4.3.1'` and run `pod install`
 
-or
+  or
 
 - download the Amplitude-iOS sdk from [here](https://amplitude.zendesk.com/hc/en-us/articles/115002278527#installation) and add it to your project manually. Make sure the `Amplitude-iOS` directory of the SDK is included in the root of your app's ios folder.
 3. Run your project (`Cmd+R`)
@@ -38,7 +38,7 @@ or
     import com.sudoplz.reactnativeamplitudeanalytics.RNAmplitudeSDKPackage;
     ```
 
-   to the imports at the top of the file.
+    to the imports at the top of the file.
    
   - Add 
 
@@ -46,7 +46,7 @@ or
     new RNAmplitudeSDKPackage(MainApplication.this),
     ``` 
 
-  to the list returned by the `getPackages()` method
+    to the list returned by the `getPackages()` method
   
 2. Append the following lines to `android/settings.gradle`:
 
