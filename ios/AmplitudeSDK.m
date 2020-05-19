@@ -37,6 +37,11 @@ RCT_REMAP_METHOD(getDeviceId, getDeviceIdWithResolver:(RCTPromiseResolveBlock)re
     resolve(deviceId);
 }
 
+RCT_EXPORT_METHOD(setDeviceId:(NSString *)deviceId)
+{
+     [[Amplitude instance] setDeviceId: deviceId];
+}
+
 RCT_EXPORT_METHOD(regenerateDeviceId)
 {
      [[Amplitude instance] regenerateDeviceId];

@@ -9,6 +9,7 @@ export default class Amplitude {
   setOptOut(optOut: boolean): void;
   clearUserProperties(): void;
   getDeviceId(): Promise<string>;
+  setDeviceId(deviceId: string | number | null): void;
   regenerateDeviceId(): void;
   setLogEventPrefix(prefix: string): void;
 
