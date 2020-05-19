@@ -77,6 +77,14 @@ class Amplitude {
     }
   }
 
+  setDeviceId(deviceId) {
+    if (amplitudeHasInitialized) {
+      return RNAmplitudeSDK.setDeviceId(deviceId ? deviceId.toString() : null);
+    } else {
+      throw new Error('You called Amplitude.setDeviceId before initializing it. Run new Amplitute(key) first.');
+    }
+  }
+
   regenerateDeviceId() {
     if (amplitudeHasInitialized) {
       return RNAmplitudeSDK.regenerateDeviceId();

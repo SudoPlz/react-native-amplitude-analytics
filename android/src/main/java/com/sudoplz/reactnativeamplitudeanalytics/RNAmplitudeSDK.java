@@ -78,6 +78,11 @@ public class RNAmplitudeSDK extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
+  public void setDeviceId(String id) {
+    Amplitude.getInstance().setDeviceId(id);
+  }
+
+  @ReactMethod
   public void regenerateDeviceId() {
     Amplitude.getInstance().regenerateDeviceId();
   }
