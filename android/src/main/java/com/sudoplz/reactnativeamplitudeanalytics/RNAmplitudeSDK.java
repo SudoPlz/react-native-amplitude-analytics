@@ -2,14 +2,13 @@ package com.sudoplz.reactnativeamplitudeanalytics;
 
 import com.amplitude.api.Amplitude;
 import com.amplitude.api.Identify;
+import com.amplitude.api.Revenue;
 
 import android.app.Activity;
 import android.app.Application;
 
-import com.facebook.react.bridge.NativeModule;
 import com.facebook.react.bridge.Promise;
 import com.facebook.react.bridge.ReactApplicationContext;
-import com.facebook.react.bridge.ReactContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 
@@ -21,8 +20,6 @@ import com.facebook.react.bridge.ReadableType;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.util.Map;
 
 public class RNAmplitudeSDK extends ReactContextBaseJavaModule {
 
@@ -119,6 +116,42 @@ public class RNAmplitudeSDK extends ReactContextBaseJavaModule {
     Amplitude.getInstance().logRevenue(productIdentifier, quantity, amount);
   }
 
+  @ReactMethod
+  public void logRevenueV2(ReadableMap properties) {
+    Revenue revenue = populateRevenue(properties);
+    Amplitude.getInstance().logRevenueV2(revenue);
+  }
+
+  private Revenue populateRevenue(ReadableMap properties) {
+    Revenue revenue = new Revenue();
+    try {
+      if (properties.hasKey("productId")) {
+        revenue.setProductId(properties.getString("productId"));
+      }
+      if (properties.hasKey("quantity")) {
+        revenue.setQuantity(properties.getInt("quantity"));
+      } else {
+        revenue.setQuantity(1);
+      }
+      if (properties.hasKey("price")) {
+        revenue.setPrice(properties.getDouble("price"));
+      }
+      if (properties.hasKey("revenueType")) {
+        revenue.setRevenueType(properties.getString("revenueType"));
+      }
+      if (properties.hasKey("receipt") && properties.hasKey("receiptSignature")) {
+        revenue.setReceipt(properties.getString("receipt"), properties.getString("receiptSignature"));
+      }
+      if (properties.hasKey("eventProperties")) {
+        JSONObject eventProperties = convertReadableToJsonObject(properties.getMap("eventProperties"));
+        revenue.setEventProperties(eventProperties);
+      }
+    } catch (JSONException e) {
+      // do nothing
+    }
+    return revenue;
+  }
+
   public static JSONObject convertReadableToJsonObject(ReadableMap map) throws JSONException{
     JSONObject jsonObj = new JSONObject();
     ReadableMapKeySetIterator it = map.keySetIterator();
@@ -128,27 +161,27 @@ public class RNAmplitudeSDK extends ReactContextBaseJavaModule {
       ReadableType type = map.getType(key);
       switch (type) {
         case Map:
-            jsonObj.put(key, convertReadableToJsonObject(map.getMap(key)));
-            break;
+          jsonObj.put(key, convertReadableToJsonObject(map.getMap(key)));
+          break;
         case String:
-            jsonObj.put(key, map.getString(key));
-            break;
+          jsonObj.put(key, map.getString(key));
+          break;
         case Number:
-            jsonObj.put(key, map.getDouble(key));
-            break;
+          jsonObj.put(key, map.getDouble(key));
+          break;
         case Boolean:
-            jsonObj.put(key, map.getBoolean(key));
-            break;
+          jsonObj.put(key, map.getBoolean(key));
+          break;
         case Array:
-            try {
-              jsonObj.put(key, convertReadableToJsonArray(map.getArray(key)));
-              break;
-            } catch (JSONException e) {
-              break;
-            }
-        case Null:
-            jsonObj.put(key, null);
+          try {
+            jsonObj.put(key, convertReadableToJsonArray(map.getArray(key)));
             break;
+          } catch (JSONException e) {
+            break;
+          }
+        case Null:
+          jsonObj.put(key, null);
+          break;
       }
     }
     return jsonObj;
@@ -164,21 +197,21 @@ public class RNAmplitudeSDK extends ReactContextBaseJavaModule {
           array.put(readableArray.getBoolean(i));
           break;
         case Number:
-            array.put(readableArray.getDouble(i));
-            break;
+          array.put(readableArray.getDouble(i));
+          break;
         case String:
-            array.put(readableArray.getString(i));
-            break;
+          array.put(readableArray.getString(i));
+          break;
         case Map:
-            try {
-              array.put(convertReadableToJsonObject(readableArray.getMap(i)));
-              break;
-            } catch (JSONException e) {
-              break;
-            } 
-        case Array:
-            array.put(convertReadableToJsonArray(readableArray.getArray(i)));
+          try {
+            array.put(convertReadableToJsonObject(readableArray.getMap(i)));
             break;
+          } catch (JSONException e) {
+            break;
+          }
+        case Array:
+          array.put(convertReadableToJsonArray(readableArray.getArray(i)));
+          break;
       }
     }
     return array;

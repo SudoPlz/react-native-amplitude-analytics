@@ -144,6 +144,14 @@ class Amplitude {
     }
   }
 
+  logRevenueV2(properties = {}) {
+    if (amplitudeHasInitialized) {
+      return RNAmplitudeSDK.logRevenueV2(properties);
+    } else {
+      throw new Error('You called Amplitude.logRevenue before initializing it. Run new Amplitute(key) first.');
+    }
+  }
+
   addToUserProperty(property, amount) {
     if (amplitudeHasInitialized) {
       return RNAmplitudeSDK.addToUserProperty(property, amount);

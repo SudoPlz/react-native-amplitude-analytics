@@ -111,7 +111,21 @@ class testApp extends Component {
 	 
     // log revenue
     amplitude.logRevenue(productIdentifier, quantity, amount)
-	 
+
+    /**
+      * log revenueV2
+      *  RevenueProperties {
+      *    productId?: string;
+      *    quantity?: number; //default = 1
+      *    price: number;
+      *    revenueType?: string;
+      *    receipt?: string;
+      *    receiptSignature?: string;
+      *    eventProperties?: {[key: string]: any},
+      *  }
+      */
+    amplitude.logRevenueV2(eventProperties)
+
     // add to user property
     amplitude.addToUserProperty(property, amount)
 
