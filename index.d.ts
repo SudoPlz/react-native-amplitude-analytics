@@ -1,3 +1,13 @@
+export interface RevenueProperties {
+  productId?: string;
+  quantity?: number;
+  price: number;
+  revenueType?: string;
+  receipt?: string;
+  receiptSignature?: string;
+  eventProperties?: {[key: string]: any},
+}
+
 export default class Amplitude {
   constructor(apiKey: string, trackSessionEvents?: boolean, eventPrefix?: string);
 
@@ -24,6 +34,7 @@ export default class Amplitude {
   // Revenue
   // --------------------------------------------------
   logRevenue(productIdentifier: string, quantity: number, amount: number, receipt?: string): void;
+  logRevenueV2(revenueProperties: RevenueProperties): void;
   addToUserProperty(property: string, amount: number): void;
   setUserPropertyOnce(property: string, value: string | number | null): void;
 }
