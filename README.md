@@ -113,7 +113,6 @@ class testApp extends Component {
     amplitude.logRevenue(productIdentifier, quantity, amount)
 
     /**
-      * log revenueV2
       *  RevenueProperties {
       *    productId?: string;
       *    quantity?: number; //default = 1
@@ -124,7 +123,7 @@ class testApp extends Component {
       *    eventProperties?: {[key: string]: any},
       *  }
       */
-    amplitude.logRevenueV2(eventProperties)
+    amplitude.logRevenueV2(revenueProperties)
 
     // add to user property
     amplitude.addToUserProperty(property, amount)
