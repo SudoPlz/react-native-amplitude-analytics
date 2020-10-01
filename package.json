@@ -27,8 +27,5 @@
   },
   "peerDependencies": {
     "react-native": "*"
-  },
-  "dependencies": {
-    "fbjs": "^0.8.5"
   }
 }
