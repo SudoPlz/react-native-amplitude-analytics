@@ -133,6 +133,9 @@ class testApp extends Component {
 
     // get device id as logged in Amplitude
     amplitude.getDeviceId().then(deviceId => ...)
+
+    // get the current session ID as logged in Amplitude
+    amplitude.getSessionId().then(sessionId => ...)
   }
   ...
 }
