@@ -40,7 +40,8 @@ RCT_REMAP_METHOD(getDeviceId, getDeviceIdWithResolver:(RCTPromiseResolveBlock)re
 RCT_REMAP_METHOD(getSessionId, getSessionIdWithResolver:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject)
 {
     long long sessionId = [[Amplitude instance] getSessionId];
-    resolve(sessionId);
+    NSNumber *sessionIdNsNumber = [NSNumber numberWithLongLong: sessionId]
+    resolve(sessionIdNsNumber);
 }
 
 RCT_EXPORT_METHOD(setDeviceId:(NSString *)deviceId)
