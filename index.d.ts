@@ -14,6 +14,7 @@ export default class Amplitude {
   // --------------------------------------------------
   // Identify
   // --------------------------------------------------
+  setEventUploadThreshold(threshold: number): void;
   setUserId(userId: string | number | null): void;
   setUserProperties(properties: Record<string, any>): void;
   setOptOut(optOut: boolean): void;

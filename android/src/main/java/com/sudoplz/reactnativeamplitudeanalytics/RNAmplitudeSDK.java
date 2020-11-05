@@ -44,6 +44,11 @@ public class RNAmplitudeSDK extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
+  public void setEventUploadThreshold(int threshold) {
+    Amplitude.getInstance().setEventUploadThreshold(threshold);
+  }
+
+  @ReactMethod
   public void setUserId(String id) {
     Amplitude.getInstance().setUserId(id);
   }
