@@ -11,6 +11,11 @@ RCT_EXPORT_METHOD(initialize:(NSString* )writeKey setTrackSessionEvents:(BOOL) t
      [[Amplitude instance] initializeApiKey: writeKey];
 }
 
+RCT_EXPORT_METHOD(setEventUploadThreshold:(int)threshold)
+{
+    [[Amplitude instance] setEventUploadThreshold:[NSNumber numberWithInt:threshold]];
+}
+
 RCT_EXPORT_METHOD(setUserId:(NSString *)userId)
 {
      [[Amplitude instance] setUserId:userId];

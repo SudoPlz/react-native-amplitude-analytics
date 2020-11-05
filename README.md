@@ -89,6 +89,9 @@ class testApp extends Component {
   constructor() {
     super();
     const amplitude = new RNAmplitude('Your Amplitude key');
+
+    // set event upload threshold
+    amplitude.setEventUploadThreshold(30);
 	 
     // log an event
     amplitude.logEvent(eventName);
