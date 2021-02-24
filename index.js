@@ -187,7 +187,11 @@ class Amplitude {
 
   appendToUserProperty(property, value) {
     if (amplitudeHasInitialized) {
-      return RNAmplitudeSDK.appendToUserProperty(property, value);
+      if (typeof value === 'string') {
+        return RNAmplitudeSDK.appendToUserProperty(property, value);
+      } else {
+        throw new Error('Amplitude.appendToUserProperty only accepts string values .');
+      }
     } else {
       throw new Error('You called Amplitude.appendToUserProperty before initializing it. Run new Amplitute(key) first.');
     }
@@ -195,7 +199,11 @@ class Amplitude {
 
   prependToUserProperty(property, value) {
     if (amplitudeHasInitialized) {
-      return RNAmplitudeSDK.prependToUserProperty(property, value);
+      if (typeof value === 'string') {
+        return RNAmplitudeSDK.prependToUserProperty(property, value);
+      } else {
+        throw new Error('Amplitude.prependToUserProperty only accepts string values .');
+      }
     } else {
       throw new Error('You called Amplitude.prependToUserProperty before initializing it. Run new Amplitute(key) first.');
     }
