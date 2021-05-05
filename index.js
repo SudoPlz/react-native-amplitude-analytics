@@ -173,7 +173,7 @@ class Amplitude {
     if (amplitudeHasInitialized) {
       return RNAmplitudeSDK.addToUserProperty(property, amount);
     } else {
-      throw new Error('You called Amplitude.addToUserPropery before initializing it. Run new Amplitute(key) first.');
+      throw new Error('You called Amplitude.addToUserProperty before initializing it. Run new Amplitute(key) first.');
     }
   }
 
@@ -182,6 +182,30 @@ class Amplitude {
       return RNAmplitudeSDK.setUserPropertyOnce(property, value);
     } else {
       throw new Error('You called Amplitude.setUserPropertyOnce before initializing it. Run new Amplitute(key) first.');
+    }
+  }
+
+  appendToUserProperty(property, value) {
+    if (amplitudeHasInitialized) {
+      if (typeof value === 'string') {
+        return RNAmplitudeSDK.appendToUserProperty(property, value);
+      } else {
+        throw new Error('Amplitude.appendToUserProperty only accepts string values .');
+      }
+    } else {
+      throw new Error('You called Amplitude.appendToUserProperty before initializing it. Run new Amplitute(key) first.');
+    }
+  }
+
+  prependToUserProperty(property, value) {
+    if (amplitudeHasInitialized) {
+      if (typeof value === 'string') {
+        return RNAmplitudeSDK.prependToUserProperty(property, value);
+      } else {
+        throw new Error('Amplitude.prependToUserProperty only accepts string values .');
+      }
+    } else {
+      throw new Error('You called Amplitude.prependToUserProperty before initializing it. Run new Amplitute(key) first.');
     }
   }
 }

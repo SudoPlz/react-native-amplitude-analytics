@@ -121,7 +121,7 @@ public class RNAmplitudeSDK extends ReactContextBaseJavaModule {
       return;
     }
   }
-
+ 
   @ReactMethod
   public void logRevenue(String productIdentifier, int quantity, double amount) {
     Amplitude.getInstance().logRevenue(productIdentifier, quantity, amount);
@@ -240,4 +240,15 @@ public class RNAmplitudeSDK extends ReactContextBaseJavaModule {
     Amplitude.getInstance().identify(identify);
   }
 
+  @ReactMethod
+  public void appendToUserProperty(String property, String value) {
+    Identify identify = new Identify().append(property, value);
+    Amplitude.getInstance().identify(identify);
+  }
+
+  @ReactMethod
+  public void prependToUserProperty(String property, String value) {
+    Identify identify = new Identify().prepend(property, value);
+    Amplitude.getInstance().identify(identify);
+  }
 }
