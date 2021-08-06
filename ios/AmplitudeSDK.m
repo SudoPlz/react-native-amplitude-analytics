@@ -21,6 +21,16 @@ RCT_EXPORT_METHOD(setUserId:(NSString *)userId)
      [[Amplitude instance] setUserId:userId];
 }
 
+RCT_REMAP_METHOD(getUserId, getUserIdWithResolver:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject)
+{
+    NSString *userId = [[Amplitude instance] userId];
+    if (userId == nil) {
+        resolve([NSNull null]);
+    } else {
+        resolve(userId);
+    }
+}
+
 RCT_EXPORT_METHOD(setUserProperties:(NSDictionary *)properties)
 {
      [[Amplitude instance] setUserProperties:properties];

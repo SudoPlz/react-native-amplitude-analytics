@@ -54,6 +54,12 @@ public class RNAmplitudeSDK extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
+  public void getUserId(Promise promise) {
+    String userId = Amplitude.getInstance().getUserId();
+    promise.resolve(userId);
+  }
+
+  @ReactMethod
   public void setUserProperties(ReadableMap properties) {
     try {
       JSONObject jProperties = convertReadableToJsonObject(properties);
