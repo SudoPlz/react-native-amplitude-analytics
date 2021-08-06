@@ -106,6 +106,9 @@ class testApp extends Component {
     // set the user id
     amplitude.setUserId('1D32FS45');
 	 
+    // get user id that you set with `setUserId` method (null by default)
+    amplitude.getUserId();
+	 
     // set user props
     amplitude.setUserProperties({ hairColor: 'brown' });
 
@@ -138,7 +141,7 @@ class testApp extends Component {
     amplitude.prependToUserProperty(property, 'stringValue')
 
     // set user property once
-    amplitude.setUserPropertyOnce(property, 'stringValue')
+    amplitude.setUserPropertyOnce(property, value)
 
     // get device id as logged in Amplitude
     amplitude.getDeviceId().then(deviceId => ...)

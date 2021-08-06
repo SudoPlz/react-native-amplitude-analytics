@@ -54,6 +54,14 @@ class Amplitude {
     }
   }
 
+  getUserId() {
+    if (amplitudeHasInitialized) {
+      return RNAmplitudeSDK.getUserId();
+    } else {
+      throw new Error('You called Amplitude.getUserId before initializing it. Run new Amplitude(key) first.');
+    }
+  }
+
   setUserProperties(properties) {
     if (amplitudeHasInitialized) {
       return RNAmplitudeSDK.setUserProperties(properties);
